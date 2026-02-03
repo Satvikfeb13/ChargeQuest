@@ -9,3 +9,5 @@ export const createStation = (data) => api.post("/stations", data);
 export const updateStation = (id, data) => api.put(`/stations/${id}`, data);
 
 export const deleteStation = (id) => api.delete(`/stations/${id}`);
+
+export const setMaintenanceMode = (id) => api.patch(`/stations/${id}/maintenance`);

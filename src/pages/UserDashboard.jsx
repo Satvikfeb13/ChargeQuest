@@ -215,11 +215,15 @@ const UserDashboard = () => {
                             
                             return isRateable && (
                                 <button 
-                                    onClick={() => navigate(`/stations/${stationInfo.id}`)}
+                                    onClick={() => navigate(`/stations/${stationInfo.id}#review-form`, { 
+                                        state: { bookingId: booking.bookingId || booking.id || booking.booking_id } 
+                                    })}
                                     className="text-xs px-3 py-1.5 bg-primary-500/10 text-primary-400 border border-primary-500/20 rounded-lg hover:bg-primary-500/20 transition-all font-semibold"
                                 >
                                     Rate Station
                                 </button>
+
+
                             );
                         })()}
                         <div className={`text-sm font-bold ${(() => {

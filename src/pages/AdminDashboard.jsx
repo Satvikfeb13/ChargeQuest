@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { getAllStations } from '../api/stationApi';
+import { getAllBookings } from '../api/bookingApi';
 import { BatteryCharging, Users, DollarSign, Activity, Settings, List } from 'lucide-react';
 import Loading from '../components/Loading';
 
@@ -19,18 +20,30 @@ const AdminDashboard = () => {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const stationsRes = await getAllStations();
+        const [stationsRes, bookingsRes] = await Promise.all([
+          getAllStations(),
+          getAllBookings().catch(err => {
+            console.warn('Could not fetch bookings for stats:', err);
+            return { data: [] };
+          })
+        ]);
+
         const stations = Array.isArray(stationsRes?.data) ? stationsRes.data : (Array.isArray(stationsRes) ? stationsRes : []);
+        const bookings = Array.isArray(bookingsRes?.data) ? bookingsRes.data : (bookingsRes?.data?.content || []);
         
+        const totalRevenue = bookings.reduce((acc, b) => {
+            const amount = b.totalAmount || b.amount || b.price || b.total_amount || 0;
+            return acc + Number(amount);
+        }, 0);
+
         setStats({
           totalStations: stations.length,
-          activeStations: stations.filter(s => 
-            (s.status?.toUpperCase() === "ACTIVE") || 
-            s.available || 
-            (s.available_slots ?? s.availableSlots ?? 0) > 0
-          ).length,
-          totalBookings: 12, // Dummy for now
-          revenue: 4250     // Dummy for now
+          activeStations: stations.filter(s => {
+            const status = (s.status || s.stationStatus || '').toUpperCase();
+            return status === 'ACTIVE' || (!['MAINTENANCE', 'INACTIVE'].includes(status) && (s.availableSlots > 0 || s.available));
+          }).length,
+          totalBookings: bookings.length,
+          revenue: totalRevenue
         });
       } catch (error) {
         console.error('Failed to fetch stats', error);

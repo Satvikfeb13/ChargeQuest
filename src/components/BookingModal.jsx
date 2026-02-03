@@ -228,32 +228,37 @@ const BookingModal = ({ station, onClose, onSuccess, reviews = [] }) => {
                                 </Button>
                             </div>
 
-                            {/* Mini Reviews Section */}
+                            {/* Enhanced Reviews Section */}
                             {reviews.length > 0 && (
-                                <div className="mt-6 pt-6 border-t border-slate-800">
-                                    <div className="flex items-center justify-between mb-3">
-                                        <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-2">
-                                            <Star size={12} className="text-yellow-500 fill-yellow-500" />
-                                            User Feedback ({reviews.length})
+                                <div className="mt-8 pt-6 border-t border-slate-800">
+                                    <div className="flex items-center justify-between mb-4">
+                                        <h4 className="text-sm font-black text-slate-100 uppercase tracking-widest flex items-center gap-2">
+                                            <Star size={16} className="text-yellow-500 fill-yellow-500" />
+                                            Community Feedback
                                         </h4>
-                                        <div className="text-xs font-bold text-white">
-                                            {(reviews.reduce((acc, r) => acc + r.rating, 0) / reviews.length).toFixed(1)} / 5
+                                        <div className="bg-primary-500/10 px-2 py-1 rounded-md border border-primary-500/20 text-[10px] font-bold text-primary-400">
+                                            {reviews.length} REVIEWS
                                         </div>
                                     </div>
-                                    <div className="space-y-3 max-h-[220px] overflow-y-auto pr-2 custom-scrollbar">
+                                    <div className="space-y-4 max-h-[300px] overflow-y-auto pr-2 custom-scrollbar">
                                         {reviews.map((review, idx) => (
-                                            <div key={idx} className="bg-slate-800/40 p-3 rounded-lg border border-white/5">
-                                                <div className="flex justify-between items-center mb-1">
-                                                    <span className="text-[10px] text-slate-500 font-medium truncate max-w-[150px]">
-                                                        {review.email || 'Verified User'}
-                                                    </span>
+                                            <div key={idx} className="bg-slate-800/60 p-4 rounded-xl border border-white/5 hover:border-white/10 transition-colors">
+                                                <div className="flex justify-between items-start mb-2">
+                                                    <div className="flex items-center gap-2">
+                                                        <div className="w-6 h-6 rounded-full bg-primary-500/20 flex items-center justify-center text-[10px] font-bold text-primary-400">
+                                                            {(review.email || 'U')[0].toUpperCase()}
+                                                        </div>
+                                                        <span className="text-[11px] text-slate-200 font-bold truncate max-w-[120px]">
+                                                            {review.email || 'Verified User'}
+                                                        </span>
+                                                    </div>
                                                     <div className="flex gap-0.5">
                                                         {[...Array(5)].map((_, i) => (
-                                                            <Star key={i} size={8} className={`${i < review.rating ? 'fill-yellow-500 text-yellow-500' : 'text-slate-700'}`} />
+                                                            <Star key={i} size={10} className={`${i < review.rating ? 'fill-yellow-500 text-yellow-500' : 'text-slate-700'}`} />
                                                         ))}
                                                     </div>
                                                 </div>
-                                                <p className="text-[11px] text-slate-300 italic leading-relaxed">
+                                                <p className="text-[12px] text-slate-400 italic leading-relaxed pl-8">
                                                     "{review.comment}"
                                                 </p>
                                             </div>

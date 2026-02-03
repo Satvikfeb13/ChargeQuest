@@ -2,13 +2,14 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchStations } from '../store/slices/stationsSlice';
 import Loading from '../components/Loading';
-import { MapPin, Zap, BatteryCharging, CheckCircle, XCircle, Edit, Trash2, Plus } from 'lucide-react';
+import { MapPin, Zap, BatteryCharging, CheckCircle, XCircle, Edit, Trash2, Plus, AlertTriangle } from 'lucide-react';
+
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
 import Button from '../components/Button';
 import AddStationModal from '../components/AddStationModal';
-import { deleteStation } from '../api/stationApi';
+import { updateStation, setMaintenanceMode } from '../api/stationApi';
 
 const Stations = () => {
     const dispatch = useDispatch();
@@ -21,14 +22,16 @@ const Stations = () => {
         dispatch(fetchStations());
     }, [dispatch]);
 
-    const handleDelete = async (id, name) => {
-        if (!window.confirm(`Are you sure you want to delete "${name}"?`)) return;
+    const handleDelete = async (station) => {
+        const name = station.stationName || station.name || "this station";
+        if (!window.confirm(`Move "${name}" to Maintenance mode? User bookings will be restricted.`)) return;
         try {
-            await deleteStation(id);
-            toast.success('Station deleted successfully');
+            await setMaintenanceMode(station.stationId || station.id);
+            toast.success('Station is now under maintenance');
             dispatch(fetchStations());
         } catch (error) {
-            toast.error('Failed to delete station');
+            console.error('Maintenance update failed:', error);
+            toast.error('Failed to update station status');
         }
     };
 
@@ -73,10 +76,12 @@ const Stations = () => {
                         const totalSlots = station.totalSlots;
                         
                         // Robust availability check
-                        const isBookable = 
+                        const isMaintenance = (station.status || '').toUpperCase() === "MAINTENANCE";
+                        const isBookable = !isMaintenance && (
                             (station.status && station.status.toUpperCase() === "ACTIVE") || 
                             station.available === true || 
-                            station.availableSlots > 0;
+                            station.availableSlots > 0
+                        );
                         
                         return (
                             <div key={station.stationId} className="card group hover:border-primary-500/50 transition-all duration-300">
@@ -84,9 +89,12 @@ const Stations = () => {
                                     <Zap size={64} className={`transition-colors duration-500 ${isBookable ? 'text-primary-500/20 group-hover:text-primary-500/40' : 'text-slate-700'}`} />
                                     
                                     <div className={`absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 shadow-lg ${
+                                        isMaintenance ? 'bg-orange-500 text-white' : 
                                         isBookable ? 'bg-green-500 text-white' : 'bg-red-500/80 text-white'
                                     }`}>
-                                        {isBookable ? (
+                                        {isMaintenance ? (
+                                            <><AlertTriangle size={12} /> Maintenance</>
+                                        ) : isBookable ? (
                                             <><CheckCircle size={12} /> Available</>
                                         ) : (
                                             <><XCircle size={12} /> Occupied</>
@@ -133,9 +141,9 @@ const Stations = () => {
                                                     <Edit size={18} /> Update
                                                 </button>
                                                 <button
-                                                    onClick={() => handleDelete(stationId, stationName)}
+                                                    onClick={() => handleDelete(station)}
                                                     className="p-2.5 rounded-xl border border-red-500/30 text-red-500 hover:bg-red-500/10 hover:border-red-500/50 transition-all flex items-center justify-center group active:scale-95"
-                                                    title="Remove Station"
+                                                    title="Maintenance Mode"
                                                 >
                                                     <Trash2 size={20} className="group-hover:rotate-12 transition-transform" />
                                                 </button>
@@ -145,13 +153,13 @@ const Stations = () => {
 
                                     return (
                                         <Button
+                                            variant="primary"
                                             onClick={() => handleBookNow(stationId)}
-                                            variant={isBookable ? "primary" : "secondary"}
                                             fullWidth
                                             disabled={!isBookable}
                                             className={!isBookable ? "opacity-50 cursor-not-allowed" : ""}
                                         >
-                                            {isBookable ? 'Book Now' : 'Currently Unavailable'}
+                                            {isMaintenance ? 'Under Maintenance' : isBookable ? 'Book Now' : 'Currently Unavailable'}
                                         </Button>
                                     );
                                 })()}

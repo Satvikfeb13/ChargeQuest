@@ -16,7 +16,8 @@
             totalSlots: 5,
             categoryId: 1, // Default category
             description: '',
-            type: 'Fast'
+            type: 'Fast',
+            status: 'ACTIVE'
         });
         const [loading, setLoading] = useState(false);
 
@@ -31,7 +32,8 @@
                     totalSlots: station.total_slots ?? station.totalSlots ?? (station.availableSlots || 5),
                     categoryId: station.category_id || station.categoryId || 1,
                     description: station.description || '',
-                    type: station.type || 'Fast'
+                    type: station.type || 'Fast',
+                    status: station.status || 'ACTIVE'
                 });
             }
         }, [station]);
@@ -54,7 +56,8 @@
                     totalSlots: parseInt(formData.totalSlots),
                     categoryId: parseInt(formData.categoryId),
                     description: formData.description,
-                    type: formData.type
+                    type: formData.type,
+                    status: formData.status
                 };
 
                 if (isEditMode) {
@@ -203,6 +206,22 @@
                                 onChange={handleChange}
                             />
                         </div>
+
+                        {isEditMode && (
+                            <div>
+                                <label className="block text-sm font-medium text-slate-300 mb-1">Station Status</label>
+                                <select
+                                    name="status"
+                                    className="input-field border-primary-500/30 text-primary-400 font-bold"
+                                    value={formData.status}
+                                    onChange={handleChange}
+                                >
+                                    <option value="ACTIVE" className="bg-slate-900 text-green-400">✓ Active (Available)</option>
+                                    <option value="MAINTENANCE" className="bg-slate-900 text-orange-400">⚠ Maintenance Mode</option>
+                                    <option value="INACTIVE" className="bg-slate-900 text-red-400">✗ Inactive (Offline)</option>
+                                </select>
+                            </div>
+                        )}
 
                         <div className="pt-4 flex gap-3">
                             <Button

@@ -1,18 +1,27 @@
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate, Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const Login = () => {
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm();
   const { login } = useAuth();
   const navigate = useNavigate();
+  const [loginError, setLoginError] = useState('');
 
   const onSubmit = async (data) => {
     try {
+      setLoginError('');
       await login(data.email, data.password);
       navigate('/'); // Or dashboard based on role
     } catch (error) {
-      // Handled by context toast
+      console.error('Login error:', error);
+      const message = error.response?.data?.message || 
+                     (typeof error.response?.data === 'string' ? error.response.data : '') ||
+                     (error.response?.status === 401 ? 'Invalid email or password' : 'An error occurred during login. Please try again.');
+      setLoginError(message);
+      toast.error(message);
     }
   };
 
@@ -43,6 +52,11 @@ const Login = () => {
             />
             {errors.password && <span className="text-red-400 text-sm">{errors.password.message}</span>}
           </div>
+          {loginError && (
+            <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-sm text-center">
+              {loginError}
+            </div>
+          )}
           <button
             type="submit"
             disabled={isSubmitting}

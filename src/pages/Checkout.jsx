@@ -118,7 +118,7 @@ const Checkout = () => {
                         console.log("Verification Response:", verifyRes.data);
                         setPaymentStatus('success');
                         toast.success("Payment successful! Slot confirmed.");
-                        setTimeout(() => navigate('/dashboard'), 2000);
+
                     } catch (err) {
                         console.error("Verification error:", err);
                         setPaymentStatus('failed');
@@ -276,11 +276,30 @@ const Checkout = () => {
 
                             <div className="mt-10 space-y-3">
                                 {paymentStatus === 'success' ? (
-                                    <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-2xl p-4 text-center space-y-2">
-                                        <div className="w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-2">
-                                            <CheckCircle2 className="text-white" size={24} />
+                                    <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-2xl p-6 text-center space-y-4">
+                                        <div className="w-16 h-16 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-2 shadow-lg shadow-emerald-500/20">
+                                            <CheckCircle2 className="text-white" size={32} />
                                         </div>
-                                        <p className="text-emerald-400 font-bold">Paid Successfully!</p>
+                                        <div className="space-y-1">
+                                            <p className="text-emerald-400 font-black text-xl tracking-tight">Booking Confirmed!</p>
+                                            <p className="text-slate-400 text-sm">Your payment was successful.</p>
+                                        </div>
+                                        <div className="pt-2 flex flex-col gap-3">
+                                            <Button 
+                                                onClick={() => navigate(`/stations/${station.id || booking.stationId}`)}
+                                                variant="primary"
+                                                fullWidth
+                                                className="bg-emerald-600 hover:bg-emerald-500 shadow-emerald-900/20 border-emerald-500"
+                                            >
+                                                Leave a Review
+                                            </Button>
+                                            <button 
+                                                onClick={() => navigate('/dashboard')}
+                                                className="text-slate-500 hover:text-white text-sm font-bold transition-colors"
+                                            >
+                                                Go to Dashboard
+                                            </button>
+                                        </div>
                                     </div>
                                 ) : (
                                     <>

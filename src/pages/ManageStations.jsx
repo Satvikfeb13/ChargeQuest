@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchStations } from '../store/slices/stationsSlice';
-import { deleteStation } from '../api/stationApi';
+import { updateStation, setMaintenanceMode } from '../api/stationApi';
 import AddStationModal from '../components/AddStationModal';
 import { Plus, Edit, Trash2, BatteryCharging, CheckCircle, XCircle } from 'lucide-react';
 import Button from '../components/Button';
@@ -17,18 +17,35 @@ const ManageStations = () => {
     const [editStation, setEditStation] = useState(null);
 
     useEffect(() => {
+        console.log('[ManageStations] Loaded Stations:', stations);
+    }, [stations]);
+
+    useEffect(() => {
         dispatch(fetchStations(null));
     }, [dispatch]);
 
-    const handleDelete = async (id, name) => {
-        if (!window.confirm(`Are you sure you want to delete "${name}"?`)) return;
+    const handleDelete = async (station) => {
+        const id = station.stationId || station.id;
+        const name = station.stationName || station.name;
+        
+        if (!window.confirm(`Move "${name}" to Maintenance mode?`)) return;
         
         try {
-            await deleteStation(id);
-            toast.success('Station deleted successfully');
-            dispatch(fetchStations(null)); // Refresh list
+            const res = await setMaintenanceMode(id);
+            console.log('[Maintenance] Response:', res.status, res.data);
+            
+            if (res.status === 200 || res.status === 201) {
+                toast.success('Station update: MAINTENANCE MODE active');
+                // Force a short delay before refresh to ensure DB consistency
+                setTimeout(() => {
+                    dispatch(fetchStations());
+                }, 500);
+            } else {
+                toast.error('Unexpected status code: ' + res.status);
+            }
         } catch (error) {
-            toast.error('Failed to delete station');
+            console.error('Maintenance update failed:', error.response?.data || error.message);
+            toast.error(error.response?.data || 'Failed to update station status');
         }
     };
 
@@ -108,17 +125,29 @@ const ManageStations = () => {
                                     </td>
                                     <td className="px-6 py-4 text-sm">{station.availableSlots}</td>
                                     <td className="px-6 py-4">
-                                        <span className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-semibold ${
-                                            ((station.status?.toUpperCase() === "ACTIVE") || station.available || station.availableSlots > 0) 
-                                                ? 'bg-green-500/10 text-green-400' 
-                                                : 'bg-red-500/10 text-red-400'
-                                        }`}>
-                                            {((station.status?.toUpperCase() === "ACTIVE") || station.available || station.availableSlots > 0) ? (
-                                                <><CheckCircle size={12} /> Available</>
-                                            ) : (
-                                                <><XCircle size={12} /> Occupied</>
-                                            )}
-                                        </span>
+                                        {(() => {
+                                            const rawStatus = (station.status || station.stationStatus || station.station_status || '').toUpperCase();
+                                            const isMaint = rawStatus === 'MAINTENANCE';
+                                            const isAvailable = !isMaint && (rawStatus === 'ACTIVE' || station.available || (station.availableSlots > 0));
+
+                                            return (
+                                                <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border ${
+                                                    isMaint
+                                                        ? 'bg-orange-500/10 text-orange-400 border-orange-500/30'
+                                                        : isAvailable 
+                                                            ? 'bg-green-500/10 text-green-400 border-green-500/30' 
+                                                            : 'bg-red-500/10 text-red-400 border-red-500/30'
+                                                }`}>
+                                                    {isMaint ? (
+                                                        <><XCircle size={13} className="text-orange-500" /> Maintenance</>
+                                                    ) : isAvailable ? (
+                                                        <><CheckCircle size={13} /> Available</>
+                                                    ) : (
+                                                        <><XCircle size={13} /> Occupied</>
+                                                    )}
+                                                </span>
+                                            );
+                                        })()}
                                     </td>
                                     <td className="px-6 py-4 text-right">
                                         <div className="flex justify-end gap-2">
@@ -137,9 +166,9 @@ const ManageStations = () => {
                                                 <Edit size={18} />
                                             </button>
                                             <button
-                                                onClick={() => handleDelete(sId, station.stationName)}
+                                                onClick={() => handleDelete(station)}
                                                 className="p-2 text-red-400 hover:bg-red-500/10 rounded-lg transition-colors"
-                                                title="Delete"
+                                                title="Maintenance Mode"
                                             >
                                                 <Trash2 size={18} />
                                             </button>
