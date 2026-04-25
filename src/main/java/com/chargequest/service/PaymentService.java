@@ -1,0 +1,19 @@
+package com.chargequest.service;
+
+import java.util.List;
+import java.util.Map;
+
+import com.chargequest.DTO.ApiResponse;
+import com.chargequest.DTO.OrderResponseDTO;
+import com.chargequest.DTO.PaymentResponseDTO;
+import com.razorpay.Order;
+
+public interface PaymentService {
+
+
+	  OrderResponseDTO createOrder(Long bookingId) throws Exception;
+
+	    ApiResponse verifyPayment(Map<String, Object> payload) throws Exception;
+
+	    List<PaymentResponseDTO> getPaymentsByBooking(Long bookingId);
+}
