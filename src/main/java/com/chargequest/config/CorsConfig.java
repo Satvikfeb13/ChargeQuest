@@ -17,7 +17,9 @@ public class CorsConfig {
         
         configuration.setAllowedOrigins(Arrays.asList(
             "http://localhost:5173",
-            "http://localhost:3000"
+            "http://localhost:3000",
+            "https://charge-quest.netlify.app"
+
         ));
         
         configuration.setAllowedMethods(Arrays.asList(
