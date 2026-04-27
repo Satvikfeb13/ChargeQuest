@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.chargequest.DTO.ApiResponse;
-import com.chargequest.DTO.ReviewRequest;
-import com.chargequest.DTO.ReviewResponseDTO;
-import com.chargequest.DTO.ReviewUpdateRequest;
+import com.chargequest.dto.ApiResponse;
+import com.chargequest.dto.ReviewRequest;
+import com.chargequest.dto.ReviewResponseDTO;
+import com.chargequest.dto.ReviewUpdateRequest;
 import com.chargequest.service.ReviewService;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;

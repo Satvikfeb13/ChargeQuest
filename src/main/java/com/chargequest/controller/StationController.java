@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.chargequest.DTO.ApiResponse;
-import com.chargequest.DTO.StationRequestDTO;
-import com.chargequest.DTO.StationResponseDTO;
+import com.chargequest.dto.ApiResponse;
+import com.chargequest.dto.StationRequestDTO;
+import com.chargequest.dto.StationResponseDTO;
 import com.chargequest.service.StationService;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;

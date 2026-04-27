@@ -2,10 +2,10 @@ package com.chargequest.service;
 
 import java.util.List;
 
-import com.chargequest.DTO.ApiResponse;
-import com.chargequest.DTO.ReviewRequest;
-import com.chargequest.DTO.ReviewResponseDTO;
-import com.chargequest.DTO.ReviewUpdateRequest;
+import com.chargequest.dto.ApiResponse;
+import com.chargequest.dto.ReviewRequest;
+import com.chargequest.dto.ReviewResponseDTO;
+import com.chargequest.dto.ReviewUpdateRequest;
 
 import jakarta.validation.Valid;
 

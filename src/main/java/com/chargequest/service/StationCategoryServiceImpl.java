@@ -5,10 +5,10 @@ import java.util.List;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
-import com.chargequest.DTO.ApiResponse;
-import com.chargequest.DTO.ResponseStatus;
-import com.chargequest.DTO.StationCategoryRequestDTO;
-import com.chargequest.DTO.StationCategoryResponseDTO;
+import com.chargequest.dto.ApiResponse;
+import com.chargequest.dto.ResponseStatus;
+import com.chargequest.dto.StationCategoryRequestDTO;
+import com.chargequest.dto.StationCategoryResponseDTO;
 import com.chargequest.model.StationCategory;
 import com.chargequest.repository.StationCategoryRepositary;
 

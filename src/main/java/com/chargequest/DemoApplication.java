@@ -11,8 +11,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
-import com.chargequest.DTO.StationCategoryRequestDTO;
-import com.chargequest.DTO.StationRequestDTO;
+import com.chargequest.dto.StationCategoryRequestDTO;
+import com.chargequest.dto.StationRequestDTO;
 import com.chargequest.model.Station;
 import com.chargequest.model.StationCategory;
 

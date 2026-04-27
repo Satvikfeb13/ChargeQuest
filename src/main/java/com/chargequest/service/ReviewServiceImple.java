@@ -9,13 +9,13 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.chargequest.DTO.ApiResponse;
-import com.chargequest.DTO.ResponseStatus;
-import com.chargequest.DTO.ReviewRequest;
-import com.chargequest.DTO.ReviewResponseDTO;
-import com.chargequest.DTO.ReviewUpdateRequest;
 import com.chargequest.config.UserPrincipal;
 import com.chargequest.customException.ResourceNotFoundException;
+import com.chargequest.dto.ApiResponse;
+import com.chargequest.dto.ResponseStatus;
+import com.chargequest.dto.ReviewRequest;
+import com.chargequest.dto.ReviewResponseDTO;
+import com.chargequest.dto.ReviewUpdateRequest;
 import com.chargequest.model.Booking;
 import com.chargequest.model.PaymentStatus;
 import com.chargequest.model.Review;

@@ -1,4 +1,4 @@
-package com.chargequest.DTO;
+package com.chargequest.dto;
 
 import com.chargequest.model.PaymentMethod;
 

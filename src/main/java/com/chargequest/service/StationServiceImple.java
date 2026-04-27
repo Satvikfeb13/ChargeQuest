@@ -7,11 +7,11 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.chargequest.DTO.ApiResponse;
-import com.chargequest.DTO.ResponseStatus;
-import com.chargequest.DTO.StationRequestDTO;
-import com.chargequest.DTO.StationResponseDTO;
 import com.chargequest.customException.ResourceNotFoundException;
+import com.chargequest.dto.ApiResponse;
+import com.chargequest.dto.ResponseStatus;
+import com.chargequest.dto.StationRequestDTO;
+import com.chargequest.dto.StationResponseDTO;
 import com.chargequest.model.Station;
 import com.chargequest.model.StationCategory;
 import com.chargequest.model.StationStatus;

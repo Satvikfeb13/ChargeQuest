@@ -17,8 +17,8 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.modelmapper.ModelMapper;
 
-import com.chargequest.DTO.BookingRequest;
-import com.chargequest.DTO.BookingResponseDTO;
+import com.chargequest.dto.BookingRequest;
+import com.chargequest.dto.BookingResponseDTO;
 import com.chargequest.model.Booking;
 import com.chargequest.model.Station;
 import com.chargequest.model.User;

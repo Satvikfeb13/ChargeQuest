@@ -2,8 +2,8 @@ package com.chargequest.service;
 
 import java.util.List;
 
-import com.chargequest.DTO.ApiResponse;
-import com.chargequest.DTO.UserResponseDTO;
+import com.chargequest.dto.ApiResponse;
+import com.chargequest.dto.UserResponseDTO;
 
 public interface AdminService {
     List<UserResponseDTO> getAllUsers();

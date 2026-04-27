@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.chargequest.DTO.AuthResponse;
-import com.chargequest.DTO.LoginRequest;
-import com.chargequest.DTO.RegisterRequest;
 import com.chargequest.config.JwtUtils;
 import com.chargequest.config.UserPrincipal;
+import com.chargequest.dto.AuthResponse;
+import com.chargequest.dto.LoginRequest;
+import com.chargequest.dto.RegisterRequest;
 import com.chargequest.service.UserService;
 
 import jakarta.validation.Valid;

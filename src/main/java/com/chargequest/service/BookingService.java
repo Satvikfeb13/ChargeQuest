@@ -2,8 +2,8 @@ package com.chargequest.service;
 
 import java.util.List;
 
-import com.chargequest.DTO.BookingRequest;
-import com.chargequest.DTO.BookingResponseDTO;
+import com.chargequest.dto.BookingRequest;
+import com.chargequest.dto.BookingResponseDTO;
 
 public interface BookingService {
 

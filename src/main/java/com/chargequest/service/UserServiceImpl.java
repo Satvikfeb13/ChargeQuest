@@ -5,13 +5,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.chargequest.DTO.ApiResponse;
-import com.chargequest.DTO.LoginRequest;
-import com.chargequest.DTO.RegisterRequest;
-import com.chargequest.DTO.ResponseStatus;
-import com.chargequest.DTO.UserResponseDTO;
 import com.chargequest.customException.AuthenticationException;
 import com.chargequest.customException.ResourceNotFoundException;
+import com.chargequest.dto.ApiResponse;
+import com.chargequest.dto.LoginRequest;
+import com.chargequest.dto.RegisterRequest;
+import com.chargequest.dto.ResponseStatus;
+import com.chargequest.dto.UserResponseDTO;
 import com.chargequest.model.Role;
 import com.chargequest.model.User;
 import com.chargequest.repository.UserRepository;

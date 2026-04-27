@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.chargequest.DTO.ApiResponse;
-import com.chargequest.DTO.OrderResponseDTO;
-import com.chargequest.DTO.PaymentResponseDTO;
+import com.chargequest.dto.ApiResponse;
+import com.chargequest.dto.OrderResponseDTO;
+import com.chargequest.dto.PaymentResponseDTO;
 import com.chargequest.service.PaymentService;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;

@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.chargequest.DTO.ApiResponse;
-import com.chargequest.DTO.RegisterRequest;
-import com.chargequest.DTO.ResponseStatus;
 import com.chargequest.config.UserPrincipal;
+import com.chargequest.dto.ApiResponse;
+import com.chargequest.dto.RegisterRequest;
+import com.chargequest.dto.ResponseStatus;
 import com.chargequest.service.UserService;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;

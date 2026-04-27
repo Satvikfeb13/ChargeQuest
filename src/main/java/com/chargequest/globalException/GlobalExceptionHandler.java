@@ -13,11 +13,11 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.chargequest.DTO.ApiResponse;
-import com.chargequest.DTO.ResponseStatus;
 import com.chargequest.customException.BookingException;
 import com.chargequest.customException.PaymentException;
 import com.chargequest.customException.ResourceNotFoundException;
+import com.chargequest.dto.ApiResponse;
+import com.chargequest.dto.ResponseStatus;
 
 import lombok.extern.slf4j.Slf4j;
 

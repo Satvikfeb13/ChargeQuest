@@ -1,9 +1,9 @@
 package com.chargequest.service;
 
-import com.chargequest.DTO.ApiResponse;
-import com.chargequest.DTO.LoginRequest;
-import com.chargequest.DTO.RegisterRequest;
-import com.chargequest.DTO.UserResponseDTO;
+import com.chargequest.dto.ApiResponse;
+import com.chargequest.dto.LoginRequest;
+import com.chargequest.dto.RegisterRequest;
+import com.chargequest.dto.UserResponseDTO;
 import com.chargequest.model.User;
 
 public interface UserService {

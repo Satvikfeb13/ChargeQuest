@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.chargequest.DTO.BookingRequest;
-import com.chargequest.DTO.BookingResponseDTO;
 import com.chargequest.config.UserPrincipal;
 import com.chargequest.customException.ResourceNotFoundException;
+import com.chargequest.dto.BookingRequest;
+import com.chargequest.dto.BookingResponseDTO;
 import com.chargequest.service.BookingService;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;

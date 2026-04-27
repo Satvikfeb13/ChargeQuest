@@ -6,10 +6,10 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.chargequest.DTO.BookingRequest;
-import com.chargequest.DTO.BookingResponseDTO;
 import com.chargequest.customException.BookingException;
 import com.chargequest.customException.ResourceNotFoundException;
+import com.chargequest.dto.BookingRequest;
+import com.chargequest.dto.BookingResponseDTO;
 import com.chargequest.model.Booking;
 import com.chargequest.model.BookingStatus;
 import com.chargequest.model.PaymentStatus;

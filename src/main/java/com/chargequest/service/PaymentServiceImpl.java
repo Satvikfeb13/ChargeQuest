@@ -10,12 +10,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.chargequest.DTO.ApiResponse;
-import com.chargequest.DTO.OrderResponseDTO;  // ✅ ADD THIS
-import com.chargequest.DTO.PaymentResponseDTO;
-import com.chargequest.DTO.ResponseStatus;
 import com.chargequest.customException.PaymentException;
 import com.chargequest.customException.ResourceNotFoundException;
+import com.chargequest.dto.ApiResponse;
+import com.chargequest.dto.OrderResponseDTO;
+import com.chargequest.dto.PaymentResponseDTO;
+import com.chargequest.dto.ResponseStatus;
 import com.chargequest.model.Booking;
 import com.chargequest.model.BookingStatus;
 import com.chargequest.model.Payment;
