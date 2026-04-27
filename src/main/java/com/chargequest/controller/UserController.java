@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.chargequest.config.UserPrincipal;
-import com.chargequest.dto.ApiResponse;
-import com.chargequest.dto.RegisterRequest;
-import com.chargequest.dto.ResponseStatus;
 import com.chargequest.service.UserService;
+import com.chargequest.tempdto.ApiResponse;
+import com.chargequest.tempdto.RegisterRequest;
+import com.chargequest.tempdto.ResponseStatus;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;

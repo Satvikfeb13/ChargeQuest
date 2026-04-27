@@ -1,4 +1,4 @@
-package com.chargequest.dto;
+package com.chargequest.tempdto;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;

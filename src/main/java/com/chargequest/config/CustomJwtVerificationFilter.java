@@ -10,8 +10,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.chargequest.dto.ApiResponse;
-import com.chargequest.dto.ResponseStatus;
+import com.chargequest.tempdto.ApiResponse;
+import com.chargequest.tempdto.ResponseStatus;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.jsonwebtoken.Claims;

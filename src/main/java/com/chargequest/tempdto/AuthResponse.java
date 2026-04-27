@@ -1,4 +1,4 @@
-package com.chargequest.dto;
+package com.chargequest.tempdto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.chargequest.dto.ApiResponse;
-import com.chargequest.dto.ReviewRequest;
-import com.chargequest.dto.ReviewResponseDTO;
-import com.chargequest.dto.ReviewUpdateRequest;
 import com.chargequest.service.ReviewService;
+import com.chargequest.tempdto.ApiResponse;
+import com.chargequest.tempdto.ReviewRequest;
+import com.chargequest.tempdto.ReviewResponseDTO;
+import com.chargequest.tempdto.ReviewUpdateRequest;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;

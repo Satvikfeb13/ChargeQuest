@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.chargequest.config.JwtUtils;
 import com.chargequest.config.UserPrincipal;
-import com.chargequest.dto.AuthResponse;
-import com.chargequest.dto.LoginRequest;
-import com.chargequest.dto.RegisterRequest;
 import com.chargequest.service.UserService;
+import com.chargequest.tempdto.AuthResponse;
+import com.chargequest.tempdto.LoginRequest;
+import com.chargequest.tempdto.RegisterRequest;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
