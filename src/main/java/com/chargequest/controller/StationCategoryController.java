@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.chargequest.dto.ApiResponse;
+import com.chargequest.dto.StationCategoryRequestDTO;
+import com.chargequest.dto.StationCategoryResponseDTO;
 import com.chargequest.service.StationCategoryService;
-import com.chargequest.tempdto.ApiResponse;
-import com.chargequest.tempdto.StationCategoryRequestDTO;
-import com.chargequest.tempdto.StationCategoryResponseDTO;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

@@ -8,6 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.chargequest.customException.BookingException;
 import com.chargequest.customException.ResourceNotFoundException;
+import com.chargequest.dto.BookingRequest;
+import com.chargequest.dto.BookingResponseDTO;
 import com.chargequest.model.Booking;
 import com.chargequest.model.BookingStatus;
 import com.chargequest.model.PaymentStatus;
@@ -16,8 +18,6 @@ import com.chargequest.model.User;
 import com.chargequest.repository.BookingRepository;
 import com.chargequest.repository.StationRepository;
 import com.chargequest.repository.UserRepository;
-import com.chargequest.tempdto.BookingRequest;
-import com.chargequest.tempdto.BookingResponseDTO;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

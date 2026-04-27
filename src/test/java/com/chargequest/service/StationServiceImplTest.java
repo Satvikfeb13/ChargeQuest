@@ -16,12 +16,12 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.modelmapper.ModelMapper;
 
+import com.chargequest.dto.ApiResponse;
+import com.chargequest.dto.StationRequestDTO;
 import com.chargequest.model.Station;
 import com.chargequest.model.StationCategory;
 import com.chargequest.repository.StationCategoryRepositary;
 import com.chargequest.repository.StationRepository;
-import com.chargequest.tempdto.ApiResponse;
-import com.chargequest.tempdto.StationRequestDTO;
 
 @ExtendWith(MockitoExtension.class)
 class StationServiceImplTest {

@@ -8,12 +8,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.chargequest.customException.ResourceNotFoundException;
+import com.chargequest.dto.ApiResponse;
+import com.chargequest.dto.ResponseStatus;
+import com.chargequest.dto.UserResponseDTO;
 import com.chargequest.model.Role;
 import com.chargequest.model.User;
 import com.chargequest.repository.UserRepository;
-import com.chargequest.tempdto.ApiResponse;
-import com.chargequest.tempdto.ResponseStatus;
-import com.chargequest.tempdto.UserResponseDTO;
 
 import lombok.RequiredArgsConstructor;
 

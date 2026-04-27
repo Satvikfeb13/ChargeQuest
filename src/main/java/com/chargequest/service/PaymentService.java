@@ -3,9 +3,9 @@ package com.chargequest.service;
 import java.util.List;
 import java.util.Map;
 
-import com.chargequest.tempdto.ApiResponse;
-import com.chargequest.tempdto.OrderResponseDTO;
-import com.chargequest.tempdto.PaymentResponseDTO;
+import com.chargequest.dto.ApiResponse;
+import com.chargequest.dto.OrderResponseDTO;
+import com.chargequest.dto.PaymentResponseDTO;
 import com.razorpay.Order;
 
 public interface PaymentService {

@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import com.chargequest.customException.BookingException;
 import com.chargequest.customException.PaymentException;
 import com.chargequest.customException.ResourceNotFoundException;
-import com.chargequest.tempdto.ApiResponse;
-import com.chargequest.tempdto.ResponseStatus;
+import com.chargequest.dto.ApiResponse;
+import com.chargequest.dto.ResponseStatus;
 
 import lombok.extern.slf4j.Slf4j;
 

@@ -5,12 +5,12 @@ import java.util.List;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import com.chargequest.dto.ApiResponse;
+import com.chargequest.dto.ResponseStatus;
+import com.chargequest.dto.StationCategoryRequestDTO;
+import com.chargequest.dto.StationCategoryResponseDTO;
 import com.chargequest.model.StationCategory;
 import com.chargequest.repository.StationCategoryRepositary;
-import com.chargequest.tempdto.ApiResponse;
-import com.chargequest.tempdto.ResponseStatus;
-import com.chargequest.tempdto.StationCategoryRequestDTO;
-import com.chargequest.tempdto.StationCategoryResponseDTO;
 
 import lombok.RequiredArgsConstructor;
 

@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.chargequest.config.UserPrincipal;
 import com.chargequest.customException.ResourceNotFoundException;
+import com.chargequest.dto.BookingRequest;
+import com.chargequest.dto.BookingResponseDTO;
 import com.chargequest.service.BookingService;
-import com.chargequest.tempdto.BookingRequest;
-import com.chargequest.tempdto.BookingResponseDTO;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;

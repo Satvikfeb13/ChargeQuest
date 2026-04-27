@@ -15,11 +15,11 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.modelmapper.ModelMapper;
 
+import com.chargequest.dto.ReviewResponseDTO;
 import com.chargequest.model.Review;
 import com.chargequest.model.Station;
 import com.chargequest.model.User;
 import com.chargequest.repository.ReviewRepository;
-import com.chargequest.tempdto.ReviewResponseDTO;
 
 @ExtendWith(MockitoExtension.class)
 class ReviewServiceTest {

@@ -1,4 +1,4 @@
-package com.chargequest.tempdto;
+package com.chargequest.dto;
 
 import com.chargequest.model.PaymentMethod;
 

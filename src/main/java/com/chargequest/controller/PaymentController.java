@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.chargequest.dto.ApiResponse;
+import com.chargequest.dto.OrderResponseDTO;
+import com.chargequest.dto.PaymentResponseDTO;
 import com.chargequest.service.PaymentService;
-import com.chargequest.tempdto.ApiResponse;
-import com.chargequest.tempdto.OrderResponseDTO;
-import com.chargequest.tempdto.PaymentResponseDTO;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;

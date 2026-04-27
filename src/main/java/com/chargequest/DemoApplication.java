@@ -11,10 +11,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
+import com.chargequest.dto.StationCategoryRequestDTO;
+import com.chargequest.dto.StationRequestDTO;
 import com.chargequest.model.Station;
 import com.chargequest.model.StationCategory;
-import com.chargequest.tempdto.StationCategoryRequestDTO;
-import com.chargequest.tempdto.StationRequestDTO;
 
 @EnableScheduling
 @SpringBootConfiguration

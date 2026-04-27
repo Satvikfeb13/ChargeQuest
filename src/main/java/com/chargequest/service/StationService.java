@@ -2,9 +2,9 @@ package com.chargequest.service;
 
 import java.util.List;
 
-import com.chargequest.tempdto.ApiResponse;
-import com.chargequest.tempdto.StationRequestDTO;
-import com.chargequest.tempdto.StationResponseDTO;
+import com.chargequest.dto.ApiResponse;
+import com.chargequest.dto.StationRequestDTO;
+import com.chargequest.dto.StationResponseDTO;
 
 public interface StationService {
     List<StationResponseDTO> getAllStations();
