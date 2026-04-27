@@ -3,7 +3,7 @@ import api from './axios';
 // Get current user's bookings
 export const getMyBookings = async () => {
   try {
-    const response = await api.get('/bookings/me');
+    const response = await api.get('/api/v1/bookings/me');
     return response;
   } catch (error) {
     console.error('Error fetching my bookings:', error);
@@ -14,7 +14,7 @@ export const getMyBookings = async () => {
 // Get bookings for a specific user (admin or self)
 export const getBookingsByUserId = async (userId) => {
   try {
-    const response = await api.get(`/bookings/user/${userId}`);
+    const response = await api.get(`/api/v1/bookings/user/${userId}`);
     return response;
   } catch (error) {
     console.error('Error fetching user bookings:', error);
@@ -25,7 +25,7 @@ export const getBookingsByUserId = async (userId) => {
 // Get single booking by ID
 export const getBookingById = async (bookingId) => {
   try {
-    const response = await api.get(`/bookings/${bookingId}`);
+    const response = await api.get(`/api/v1/bookings/${bookingId}`);
     return response;
   } catch (error) {
     console.error('Error fetching booking:', error);
@@ -36,7 +36,7 @@ export const getBookingById = async (bookingId) => {
 // Create booking
 export const createBooking = async (bookingData) => {
   try {
-    const response = await api.post('/bookings', bookingData);
+    const response = await api.post('/api/v1/bookings', bookingData);
     return response;
   } catch (error) {
     console.error('Error creating booking:', error);
@@ -47,7 +47,7 @@ export const createBooking = async (bookingData) => {
 // Cancel booking
 export const cancelBooking = async (bookingId) => {
   try {
-    const response = await api.delete(`/bookings/${bookingId}/cancel`);
+    const response = await api.delete(`/api/v1/bookings/${bookingId}/cancel`);
     return response;
   } catch (error) {
     console.error('Error cancelling booking:', error);
@@ -58,7 +58,7 @@ export const cancelBooking = async (bookingId) => {
 // Get all bookings (Admin only)
 export const getAllBookings = async () => {
   try {
-    const response = await api.get('/bookings/admin/all');
+    const response = await api.get('/api/v1/bookings/admin/all');
     return response;
   } catch (error) {
     console.error('Error fetching all bookings:', error);

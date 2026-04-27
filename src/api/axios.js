@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || "http://localhost:8080/api/v1",
+  baseURL: import.meta.env.VITE_API_BASE_URL || "https://chargequest-sfzu.onrender.com",
   headers: {
     "Content-Type": "application/json",
   },
@@ -20,9 +20,9 @@ api.interceptors.request.use((config) => {
 api.interceptors.response.use(
   (res) => res,
   (err) => {
-    if (err.response?.status === 401 && !err.config.url.includes('/auth/login')) {
+    if (err.response?.status === 401 && !err.config.url.includes('/api/v1/auth/login')) {
       localStorage.removeItem("token");
-      window.location.href = "/login";
+      window.location.href = "/api/v1/auth/login";
     }
     return Promise.reject(err);
   }
