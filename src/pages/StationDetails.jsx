@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 
 import { getReviewsByStation, getReviewsByStationAlt, getReviewsByStationSingular, addReview, updateReview, deleteReview } from '../api/reviewApi';
@@ -18,7 +18,6 @@ import toast from 'react-hot-toast';
 
 
 
-m
 
 // Main component for viewing station details and handling reviews
 const StationDetails = () => {
@@ -303,11 +302,11 @@ const StationDetails = () => {
               <Battery size={120} className="text-slate-700/50" />
               <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-lg text-sm font-semibold text-white border border-white/10 flex items-center gap-2">
                 {isMaintenance ? (
-                  <><span className="text-orange-500 font-bold">⚠</span> Maintenance</>
+                  <><span className="text-orange-500 font-bold">âš </span> Maintenance</>
                 ) : isOnline ? (
-                  <><span className="text-green-500 font-bold">✓</span> Available</>
+                  <><span className="text-green-500 font-bold">âœ“</span> Available</>
                 ) : (
-                  <><span className="text-red-500 font-bold">✗</span> Occupied</>
+                  <><span className="text-red-500 font-bold">âœ—</span> Occupied</>
                 )}
               </div>
           </div>
@@ -335,7 +334,7 @@ const StationDetails = () => {
                 <Zap className="w-4 h-4 mr-1 text-yellow-500" /> Unit Price
               </div>
               <div className="text-lg font-semibold">
-                ₹{station.pricePerUnit ?? 0}/kWh
+                â‚¹{station.pricePerUnit ?? 0}/kWh
               </div>
             </div>
             <div className="bg-slate-900/50 p-4 rounded-xl border border-slate-800">
